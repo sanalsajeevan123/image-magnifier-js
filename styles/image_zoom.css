@@ -2,9 +2,9 @@
 
 .img-zoom-container {
   position: relative;
-  /* display: flex; */
-  width: 500px;
+  width: 400px;
   height: 500px;
+  background-color: aqua;
 }
 
 .img-zoom-lens {
@@ -27,6 +27,6 @@
 .img-zoom-result {
   border: 1px solid #d4d4d4;
   /*set the size of the result div:*/
-  width: 500px;
+  width: 400px;
   height: 500px;
 }

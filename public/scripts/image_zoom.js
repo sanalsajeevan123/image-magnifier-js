@@ -29,10 +29,18 @@ function imageZoom(imgID, resultID) {
       x = pos.x - (lens.offsetWidth / 2);
       y = pos.y - (lens.offsetHeight / 2);
       /* Prevent the lens from being positioned outside the image: */
-      if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-      if (x < 0) {x = 0;}
-      if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-      if (y < 0) {y = 0;}
+      if (x > img.width - lens.offsetWidth) {
+        x = img.width - lens.offsetWidth;
+      }
+      if (x < 0) {
+        x = 0;
+      }
+      if (y > img.height - lens.offsetHeight) {
+        y = img.height - lens.offsetHeight;
+      }
+      if (y < 0) {
+        y = 0;
+      }
       /* Set the position of the lens: */
       lens.style.left = x + "px";
       lens.style.top = y + "px";
@@ -53,6 +61,17 @@ function imageZoom(imgID, resultID) {
       return {x : x, y : y};
     }
   }
+
+function handleMouseLeave(){
+  console.log("Leave")
+  // document.getElementById('myresult').style.display = 'none'
+  // console.dir(document.getElementById('myresult'))
+}
+function handleMouseEnter(){
+  console.log("Enter")
+  // document.getElementById('myresult').style.display = 'none'
+  // console.dir(document.getElementById('myresult'))
+}
 
   // Array.from(productListElm.childern).forEach((productElm, i, list) => {
 //     productElm.addEbentListener('click', () => {
