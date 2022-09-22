@@ -1,61 +1,21 @@
-import Image from 'next/image'
+import Image from "next/image"
+import Script from "next/script"
 
-const lensSize = 200;
 
-const Home = () => {
-
-  function magnify(id, zoom){
-    const el = document.getElementById(id);
-    const copy = el.cloneNode(true);
-    const lens = document.createElement("div");
-    
-    lens.setAttribute("id","lens")  
-    lens.style.width = lensSize + "px";
-    lens.style.height = lensSize + "px";
-    
-    el.appendChild(lens);
-    el.getBoundingClientRect();
-    copy.style.zoom = zoom;
-    lens.appendChild(copy);
-    
-    copy.style.width = (el.offsetWidth * zoom) + "px";
-    copy.style.heigth = (el.offsetHeight * zoom) + "px";
-    copy.style.position = "absolute";
-    
-    el.addEventListener("mousemove", (ev) => {
-      ev.preventDefault();
-      ev.stopPropagation();
-      const pos = getCursorPos(ev);
-      lens.style.left =  - (lensSize/2) + pos.x + "px";
-      lens.style.top = - (lensSize/2) + pos.y + "px";
-      copy.style.left = - (pos.x - el.offsetLeft) + (lensSize/zoom)*0.5 + "px";
-      copy.style.top = - (pos.y - el.offsetTop) + (lensSize/zoom)*0.5  + "px";
-    })
-  }
-
-  function getCursorPos(e) {
-    var x = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
-    var y = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
-    return {x : x , y : y};
-  }
-  
-  return (
-    <div className='w-full h-screen bg-blue-200 grid grid-cols-2'>
-      <div className='relative bg-red-400 h-[320px] w-[320px]' id='zoom'>
-        <Image
-          src={'/images/img2.jpg'}
-          layout="responsive"
-          width={100}
-          height={100}
-          objectFit='contain'
-          onMouseEnter={()=>magnify("zoom", 4)}
-        />
-      </div>
-      <div className='bg-green-200'>
-
-      </div>
-    </div>
-  )
+const ImageZoom =()=>{
+    return(
+        <>
+            <Script src="/scripts/image_zoom.js"/>
+            <div className="flex space-x-5">
+                <div className="img-zoom-container">
+                    <Image id="myimage" src="/images/img2.jpg" width="300" height="240" alt="test" layout="responsive"/>
+                </div>
+                <div id="myresult" className="img-zoom-result">
+                    
+                </div>
+            </div>
+            <Script src="/scripts/image_zoom_fn_call.js" strategy="lazyOnload"/>
+        </>
+    )
 }
-
-export default Home
+export default ImageZoom

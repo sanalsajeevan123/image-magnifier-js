@@ -1,6 +1,5 @@
 import '../styles/globals.css'
-import '../styles/magnifier.css'
-import '../styles/hover.css'
+import '../styles/image_zoom.css'
 import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
