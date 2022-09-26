@@ -5,6 +5,7 @@ function imageZoom(imgID, resultID) {
     /*create lens:*/
     lens = document.createElement("DIV");
     lens.setAttribute("class", "img-zoom-lens");
+    lens.setAttribute("id", "img-zoom-lens-id");
     /*insert lens:*/
     img.parentElement.insertBefore(lens, img);
     /*calculate the ratio between result DIV and lens:*/
@@ -17,8 +18,14 @@ function imageZoom(imgID, resultID) {
     lens.addEventListener("mousemove", moveLens);
     img.addEventListener("mousemove", moveLens);
     /*and also for touch screens:*/
-    lens.addEventListener("touchmove", moveLens);
-    img.addEventListener("touchmove", moveLens);
+    //uncomment if necessery
+    // lens.addEventListener("touchmove", moveLens);
+    // img.addEventListener("touchmove", moveLens);
+    //and also for handle lens while mouse leave
+    lens.addEventListener('mouseleave',mouseleave);
+    //and also for handle lens while touch release
+    //uncomment if necessery
+    // lens.addEventListener('touchend',mouseleave);
     function moveLens(e) {
       var pos, x, y;
       /*prevent any other actions that may occur when moving over the image:*/
@@ -51,5 +58,11 @@ function imageZoom(imgID, resultID) {
       x = x - window.pageXOffset;
       y = y - window.pageYOffset;
       return {x : x, y : y};
+    }
+    function mouseleave(e){
+      e = e || window.event;
+      console.log("mouse leave from lens")
+      const element = document.getElementById('img-zoom-lens-id');
+      element.remove();
     }
   }
