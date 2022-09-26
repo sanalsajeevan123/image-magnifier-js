@@ -1,1 +1,1 @@
-imageZoom("myimage", "myresult");
+imageZoom && imageZoom("myimage", "myresult");

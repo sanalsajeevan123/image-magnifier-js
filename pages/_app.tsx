@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import '../styles/image_zoom.css'
+import '../styles/newtest.css'
 import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {

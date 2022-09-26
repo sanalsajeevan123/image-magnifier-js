@@ -1,0 +1,28 @@
+.img-zoom-container {
+    position: relative;
+    /* display: flex; */
+    /* border:1px solid black; */
+  }
+  
+  .img-zoom-lens {
+    position: absolute;
+    cursor:zoom-in;
+    background-image: url('/images/dotgif.gif');
+    background-position: center;
+    background-size: contain;
+    background: 'hsla(0, 0%, 100%, .3)';
+    border: '1px solid #ccc';
+    /*set the size of the lens:*/
+    width: 150px;
+    height: 100px;
+  }
+  
+  .img-zoom-result {
+    border: 1px solid #d4d4d4;
+    /*set the size of the result div:*/
+    width: 900px;
+    height: 600px;
+    position: fixed;
+    top: 0;
+    right: 1rem;
+  }

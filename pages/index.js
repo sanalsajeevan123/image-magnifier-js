@@ -1,26 +1,16 @@
-import Image from "next/image"
-import Script from "next/script"
+import Script from "next/script";
+import React from "react";
 
-
-const ImageZoom =()=>{
-    
+const Newtest=()=>{
     return(
         <>
-            <Script src="/scripts/image_zoom.js" strategy="beforeInteractive"/>
+            <Script src="/scripts/newtestscript.js" strategy="afterInteractive"/>
             <div className="img-zoom-container">
-                <Image 
-                    id="myimage" 
-                    src="/images/img1.jpg" 
-                    layout="responsive"
-                    width={100} 
-                    height={100} 
-                    alt="test"
-                    objectFit="contain"
-                />
-                <div id="myresult" className="img-zoom-result absolute top-0 -right-[105%]"/>         
+                <img id="myimage" src="/images/img4.jpg" width="500" height="340"/>
+                <div id="myresult" className="img-zoom-result"></div>
             </div>
             <Script src="/scripts/image_zoom_fn_call.js" strategy="lazyOnload"/>
-        </>
+        </> 
     )
 }
-export default ImageZoom
+export default Newtest
